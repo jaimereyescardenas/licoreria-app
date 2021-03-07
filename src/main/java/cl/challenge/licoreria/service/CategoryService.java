@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import cl.challenge.licoreria.entity.Category;
 import cl.challenge.licoreria.repository.CategoryRepository;
 
+@Service
 public class CategoryService implements ICategoryService {
 
 	@Autowired
