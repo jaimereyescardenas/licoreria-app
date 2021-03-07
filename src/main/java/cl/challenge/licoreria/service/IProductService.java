@@ -13,5 +13,6 @@ public interface IProductService {
 	public List<Product> findAll();
 	public Set<Product> findByCategory(Category category);
 	public Set<Product> findByName(String name);
+	public Set<Product> findByCategoryAndName(Category category, String name);
 
 }

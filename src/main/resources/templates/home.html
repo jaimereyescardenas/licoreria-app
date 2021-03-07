@@ -31,7 +31,8 @@
     </header>
     <main>
         <div class="container">
-            <div th:if="${products.size() == 0}">
+            <h2 class="text-center">Lista de productos</h2>
+            <div th:if="${products.size() == 0}" class="vh-100 d-flex justify-content-center align-content-center">
                 <p th:text="'No hay productos que mostrar"></p>
             </div>
             <div class="row" th:unless="${products.size() == 0}">

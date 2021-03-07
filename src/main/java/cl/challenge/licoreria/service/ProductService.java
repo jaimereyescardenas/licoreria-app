@@ -37,4 +37,9 @@ public class ProductService implements IProductService {
 		return productRepo.findByNameContainingIgnoreCase(name);
 	}
 
+	@Override
+	public Set<Product> findByCategoryAndName(Category category, String name) {
+		return productRepo.findByCategoryAndNameContainingIgnoreCase(category, name);
+	}
+
 }
