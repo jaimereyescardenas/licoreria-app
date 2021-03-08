@@ -49,7 +49,7 @@ public class HomeController {
 		if (categoryId != 0) {
 			Category category = categoryService.findById(categoryId).orElse(null);
 			if (category == null) {
-				products = productService.findByName(name);				
+				products = productService.findByName(name);
 			}
 			products = productService.findByCategoryAndName(category, name);
 		} else {			

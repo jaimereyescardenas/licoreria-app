@@ -2,16 +2,12 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Licorería</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
         crossorigin="anonymous">
-        <style>
-            .discounted {
-                color: red;
-                text-decoration: line-through solid red;
-            }
-        </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
@@ -25,12 +21,15 @@
                 </select>
                 <input class="form-control mr-sm-2 my-2" type="text" name="name" 
                   placeholder="Nombre producto">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">
+                	<span><img src="img/magnifying-glass-icon.svg" alt="Lupa" /></span> 
+                	<span>Buscar</span>
+                </button>
             </form>
         </nav>
     </header>
     <main>
-        <div class="container">
+        <div class="container my-3">
             <h2 class="text-center">Lista de productos</h2>
             <div th:if="${products.size() == 0}" class="vh-100 d-flex justify-content-center align-content-center">
                 <p th:text="'No hay productos que mostrar"></p>
@@ -50,15 +49,27 @@
                               th:if="${product.discount != 0}"
                               th:text="${'$' + #numbers.formatDecimal(product.price - (product.price * product.discount / 100),3,'COMMA',0,'POINT')}"></span>
                           </p>
-                          <a href="#!" class="btn btn-primary">Comprar</a>
+                          <a href="#!" class="btn btn-success">Comprar</a>
                         </div>
                       </div>                      
                 </div>
             </div>
         </div>
     </main>
-    <footer>
-
+    <footer class="footer">
+        <div class="footer-content d-flex justify-content-end align-items-center py-3 pr-5">
+            <div class="d-flex justify-content-center align-items-center">
+                <a href="https://www.linkedin.com/in/jaime-reyes-cardenas/" target="_blank" rel="noopener noreferrer">
+                    <img src="img/linkedin-icon.svg" alt="LinkedIn icon" class="d-inline-block px-2" />
+                </a>
+                <a href="https://github.com/jaimereyescardenas" target="_blank" rel="noopener noreferrer">
+                    <img src="img/github-icon.svg" alt="Github icon" class="d-inline-block px-2" />
+                </a>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <p class="my-auto px-2">Jaime Reyes C.</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

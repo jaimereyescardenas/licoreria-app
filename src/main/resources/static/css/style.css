@@ -1,0 +1,12 @@
+.discounted {
+    color: red;
+    text-decoration: line-through solid red;
+}
+
+.footer {
+    background: #383535;
+}
+
+.footer-content { 
+    color: #fff;
+}
