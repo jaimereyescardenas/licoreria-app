@@ -37,7 +37,7 @@ public class ProductRestController {
 		
 		Optional<Product> product = productService.findById(productId);
 		
-		if (product.isEmpty()) {
+		if (!product.isPresent()) {
 			throw new ResourceNotFoundException("Product id " + productId + " not found");
 		}
 		
@@ -55,7 +55,7 @@ public class ProductRestController {
 		
 		Optional<Category> category = categoryService.findById(categoryId);
 		
-		if (category.isEmpty()) {
+		if (!category.isPresent()) {
 			throw new ResourceNotFoundException("Category id " + categoryId + " not found");
 		}
 		

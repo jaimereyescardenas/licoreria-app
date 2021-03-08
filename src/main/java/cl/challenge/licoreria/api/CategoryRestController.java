@@ -30,7 +30,7 @@ public class CategoryRestController {
 		
 		Optional<Category> category = categoryService.findById(categoryId);
 		
-		if (category.isEmpty()) {
+		if (!category.isPresent()) {
 			throw new ResourceNotFoundException("Category id " + categoryId + " not found");
 		}
 		
