@@ -2,8 +2,10 @@ package cl.challenge.licoreria.entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -32,7 +34,15 @@ public class Category {
 	@Column(name = "name", length = 50, nullable = false)
 	private String name;
 	
-	@OneToMany(mappedBy = "category")
+	@OneToMany(
+	  mappedBy = "category", 
+	  fetch = FetchType.EAGER, 
+	  cascade = {
+		CascadeType.DETACH,
+		CascadeType.MERGE,
+		CascadeType.PERSIST,
+		CascadeType.REFRESH
+	})
 	private Set<Product> products;
 
 }

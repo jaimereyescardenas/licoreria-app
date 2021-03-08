@@ -1,7 +1,9 @@
 package cl.challenge.licoreria.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -41,7 +43,14 @@ public class Product {
 	@Column(name = "discount", nullable = false)
 	private Integer discount;
 	
-	@ManyToOne
+	@ManyToOne(
+	  fetch = FetchType.LAZY,
+	  cascade = {
+		CascadeType.DETACH, 
+		CascadeType.MERGE, 
+		CascadeType.PERSIST, 
+		CascadeType.REFRESH
+	})
 	@JoinColumn(name = "category")
 	private Category category;
 	
